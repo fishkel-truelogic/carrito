@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="carrito">
+<head>
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular-resource.min.js"></script>
+	<script type="text/javascript" src="carrito.js"></script>
+</head>
+<body ng-controller="itemController">
+
+<h1>{{"Carrito loco"}}</h1>
+<ul>
+	<li ng-repeat="item in items">
+		<span>{{item.nombre}}</span>
+		<span>{{item.precio}}</span>
+		<button ng-click="agregarAlCarrito(item)">+</button>
+	</li>
+</ul>
+
+<h3>Precio final: ${{cantidad}}</h3>
+
+<ul >
+	<li ng-repeat="item in carrito track by $index">
+		<span>{{$index}}</span>
+		<span>{{item.nombre}}</span>
+		<span>{{item.precio}}</span>
+		<button ng-click="sacarDelCarrito($index, item.precio)"> x</button>
+	</li>
+</ul>
+</body>
+</html>
